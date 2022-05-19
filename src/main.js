@@ -1,24 +1,23 @@
 let html = document.querySelector("#html-text");
 let style = document.querySelector("#styleText");
 
-document.addEventListener('DOMContentLoaded', function () {
-    function audioAutoPlay() {
-        var audio = document.getElementById('audio');
-            audio.play();
-        document.addEventListener("WeixinJSBridgeReady", function () {
-            audio.play();
-        }, false);
+var voice = document.getElementById('audio');
+if(typeof WeixinJSBrdgeReady=="object" && typeof WeixinJSBridge.invoke == "function"){
+    voice.play()
+}else{
+    if (document.addEventListener) {
+		document.addEventListener("WeixinJSBridgeReady", function () {
+			voice.play();
+		}, false);
+	} else if (document.attachEvent) {
+		document.attachEvent("WeixinJSBridgeReady", function () {
+			voice.play();
+		});
+		document.attachEvent("onWeixinJSBridgeReady", function () {
+			voice.play();
+		});
     }
-    audioAutoPlay();
-});
-
-document.addEventListener('touchstart', function () {
-    function audioAutoPlay() {
-        var audio = document.getElementById('audio');
-            audio.play();
-    }
-    audioAutoPlay();
-});
+}
 
 let originalString = `先画花的茎
 .stem {
