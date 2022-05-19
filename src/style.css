@@ -8,6 +8,12 @@
     --dark-brown: #73592E;
 }
 
+<style type="text/css">
+     audio{
+             display: none;
+         }
+</style>
+
 * {
     margin: 0;
     padding: 0;
