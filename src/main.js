@@ -1,6 +1,17 @@
 let html = document.querySelector("#html-text");
 let style = document.querySelector("#styleText");
 
+document.addEventListener('DOMContentLoaded', function () {
+    function audioAutoPlay() {
+        var audio = document.getElementById('audio');
+            audio.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+    }
+    audioAutoPlay();
+});
+
 let originalString = `先画花的茎
 .stem {
     position: absolute;
