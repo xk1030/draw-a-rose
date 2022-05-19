@@ -1,23 +1,25 @@
 let html = document.querySelector("#html-text");
 let style = document.querySelector("#styleText");
 
-var voice = document.getElementById('audio');
-if(typeof WeixinJSBrdgeReady=="object" && typeof WeixinJSBridge.invoke == "function"){
-    voice.play()
-}else{
-    if (document.addEventListener) {
-		document.addEventListener("WeixinJSBridgeReady", function () {
-			voice.play();
-		}, false);
-	} else if (document.attachEvent) {
-		document.attachEvent("WeixinJSBridgeReady", function () {
-			voice.play();
-		});
-		document.attachEvent("onWeixinJSBridgeReady", function () {
-			voice.play();
-		});
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+   function autoPlayAudio1() {
+        wx.config({
+            // 配置信息, 即使不正确也能使用 wx.ready
+            debug: false,
+            appId: '',
+            timestamp: 1,
+            nonceStr: '',
+            signature: '',
+            jsApiList: []
+        });
+        wx.ready(function() {
+           let audio = document.createElement('audio'); //生成一个audio元素 
+           audio.src = 'http://music.163.com/song/media/outer/url?id=385973.mp3';
+           audio.play();
+        });
     }
-}
+</script>
 
 let originalString = `先画花的茎
 .stem {
