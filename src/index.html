@@ -12,9 +12,29 @@
 
 <body>
     <style id="styleText"></style>
-    <audio autoplay="autoplay" loop="loop" preload="auto" controls="controls" hidden="true"
+    
+    <audio id="bgmusic" autoplay="autoplay" loop="loop" preload="auto" controls="controls" hidden="true"
             src="http://music.163.com/song/media/outer/url?id=385973.mp3">       
     </audio>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        function autoPlayAudio1() {
+            wx.config({
+                // 配置信息, 即使不正确也能使用 wx.ready
+                debug: false,
+                appId: '',
+                timestamp: 1,
+                nonceStr: '',
+                signature: '',
+                jsApiList: []
+            });
+            wx.ready(function() {
+                document.getElementById('bgmusic').play();
+            });
+        }
+        autoPlayAudio1();
+    </script>
+    
     <div id="wrapper">
         <div class="container">
             <div class="rose">
